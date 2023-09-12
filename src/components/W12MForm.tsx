@@ -4,6 +4,8 @@ import SpeciesName from './SpeciesName';
 import validateSpeciesName from '../validate/ValidateSpeciesName';
 import PlanetName from './PlanetName';
 import validatePlanetName from '../validate/ValidatePlanetName';
+import NumberOfBeings from './NumberOfBeings';
+import validateNumberOfBeings from '../validate/validateNumberOfBeings';
 
 const W12MForm = () => {
   // Create state variables for form fields
@@ -46,14 +48,12 @@ const W12MForm = () => {
             validate={validatePlanetName}/>
         </div>
         <div>
-          <label htmlFor='Numberofbeings'>Number of beings</label>
-          <input
-            type='text'
-            id='Numberofbeings'
-            value={numOfBeings}
-            onChange={(e) => setNumOfBeings(e.target.value)}
-          />
+          <NumberOfBeings 
+          numberOfBeings={numOfBeings}
+          onChangeNumberOfBeings={(e) => setNumOfBeings(e.target.value)}
+          validate={validateNumberOfBeings}/>
         </div>
+          
         <div>
           <label htmlFor='sumAnswer'>What is 2 + 2</label>
           <select
