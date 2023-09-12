@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import W12MHeader from './W12MHeader';
+import SpeciesName from './SpeciesName';
+import validateSpeciesName from '../validate/ValidateSpeciesName';
 
 const W12MForm = () => {
   // Create state variables for form fields
@@ -30,13 +32,10 @@ const W12MForm = () => {
       {/* Form */}
       <form role='form' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="speciesName">Species Name</label>
-          <input 
-            type='text'
-            id ="speciesName"
-            value={speciesName}
-            onChange={(e) => setSpeciesName(e.target.value)}
-          />
+           <SpeciesName
+            speciesName={speciesName}
+            onChangeSpeciesName={(e) => setSpeciesName(e.target.value)}
+            validate={validateSpeciesName}/>
         </div>
         <div>
           <label htmlFor='planetName'>Planet Name</label>
