@@ -1,4 +1,4 @@
-import { findAllByText, render,screen,fireEvent } from '@testing-library/react';
+import {  render,screen } from '@testing-library/react';
 import W12MForm from './W12MForm';
 
 test('renders form element', () => {
@@ -11,9 +11,30 @@ test('renders form element', () => {
 	expect(container.firstChild).toHaveClass('w12MForm');
 	
 });
+//test form itself rendered correctly
+test('renders the form', () => {
+	render(<W12MForm />);
+	const formElement = screen.getByRole('form');
+	expect(formElement).toBeInTheDocument();
+  });
 
+  //test to check input fields rendered by using getByLabelText
+test('renders input fields', () => {
+	render(<W12MForm />);
+	const speciesNameInput = screen.getByLabelText('Species Name');
+	const planetNameInput = screen.getByLabelText('Planet Name');
+	const numOfBeingsInput = screen.getByLabelText('Number of beings');
+	const sumAnswerInput = screen.getByLabelText('What is 2 + 2');
+	const reasonForSparingInput = screen.getByLabelText('Reason for sparing');
+  
+	expect(speciesNameInput).toBeInTheDocument();
+	expect(planetNameInput).toBeInTheDocument();
+	expect(numOfBeingsInput).toBeInTheDocument();
+	expect(sumAnswerInput).toBeInTheDocument();
+	expect(reasonForSparingInput).toBeInTheDocument();
+  });
 
-
+  //test to check input fields rendered with initial value
 it('displays initial input field values', () => {
 	render(<W12MForm />);
 	// Assert that the input fields display their initial values
@@ -22,7 +43,6 @@ it('displays initial input field values', () => {
 	expect(screen.getByLabelText(/Number of beings/i)).toHaveValue('2');
 	expect(screen.getByLabelText(/What is 2 \+ 2/i)).toHaveValue('4');
 	expect(screen.getByLabelText(/Reason for sparing/i)).toHaveValue('Reason..');
-	// Add similar assertions for other input fields
   });
   
   

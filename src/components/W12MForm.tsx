@@ -28,34 +28,38 @@ const W12MForm = () => {
       <W12MHeader />
 
       {/* Form */}
-      <form onSubmit={handleSubmit}>
+      <form role='form' onSubmit={handleSubmit}>
         <div>
-          <label>Species Name</label>
+          <label htmlFor="speciesName">Species Name</label>
           <input 
             type='text'
+            id ="speciesName"
             value={speciesName}
             onChange={(e) => setSpeciesName(e.target.value)}
           />
         </div>
         <div>
-          <label>Planet Name</label>
+          <label htmlFor='planetName'>Planet Name</label>
           <input
             type='text'
+            id='planetName'
             value={planetName}
             onChange={(e) => setPlanetName(e.target.value)}
           />
         </div>
         <div>
-          <label>Number of beings</label>
+          <label htmlFor='Numberofbeings'>Number of beings</label>
           <input
             type='text'
+            id='Numberofbeings'
             value={numOfBeings}
             onChange={(e) => setNumOfBeings(e.target.value)}
           />
         </div>
         <div>
-          <label>What is 2 + 2</label>
+          <label htmlFor='sumAnswer'>What is 2 + 2</label>
           <select
+            id='sumAnswer'
             value={sumAnswer}
             onChange={(e) => setSumAnswer(e.target.value)}
           >
@@ -64,8 +68,9 @@ const W12MForm = () => {
           </select>
         </div>
         <div>
-          <label>Reason for sparing</label>
+          <label htmlFor='reasonforSparing'>Reason for sparing</label>
           <textarea
+            id = 'reasonforSparing'
             value={reasonForSparing}
             onChange={(e) => setReasonForSparing(e.target.value)}
           />
