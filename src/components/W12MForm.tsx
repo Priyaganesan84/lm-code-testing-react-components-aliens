@@ -6,6 +6,10 @@ import PlanetName from './PlanetName';
 import validatePlanetName from '../validate/ValidatePlanetName';
 import NumberOfBeings from './NumberOfBeings';
 import validateNumberOfBeings from '../validate/validateNumberOfBeings';
+import SumAnswer from './SumOfNumber';
+import validateSumAnswer from '../validate/validateSumAnswer';
+import ReasonForSparing from './ReasonForSparing';
+import validateReasonForSparing from '../validate/validateReasonForSparing';
 
 const W12MForm = () => {
   // Create state variables for form fields
@@ -55,23 +59,15 @@ const W12MForm = () => {
         </div>
           
         <div>
-          <label htmlFor='sumAnswer'>What is 2 + 2</label>
-          <select
-            id='sumAnswer'
-            value={sumAnswer}
-            onChange={(e) => setSumAnswer(e.target.value)}
-          >
-            <option value='4'>4</option>
-            <option value='Not 4'>Not 4</option>
-          </select>
-        </div>
+          <SumAnswer sumAnswer={sumAnswer}  
+          onChangeSumAnswer={(e) => setSumAnswer(e.target.value)}
+          validate={validateSumAnswer} />
+
+         </div>
         <div>
-          <label htmlFor='reasonforSparing'>Reason for sparing</label>
-          <textarea
-            id = 'reasonforSparing'
-            value={reasonForSparing}
-            onChange={(e) => setReasonForSparing(e.target.value)}
-          />
+        <ReasonForSparing reasonForSparing={reasonForSparing}
+          onchangeReasonSparing={(e) => setReasonForSparing(e.target.value)}
+          validate={validateReasonForSparing}/>
         </div>
         <button type='submit'>Submit</button>
       </form>
