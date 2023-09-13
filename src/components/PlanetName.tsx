@@ -3,11 +3,11 @@ import validatePlanetName from '../validate/ValidatePlanetName';
 
 interface PlanetNameProps {
     planetName: string;
-    onChangeSpeciesName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChangePlanetName: (e: React.ChangeEvent<HTMLInputElement>) => void;
     validate: (value: string) => string[]; // Add this line for the validate prop
   } 
 
-const PlanetName : React.FC<PlanetNameProps> = ({ planetName, onChangeSpeciesName, validate }: PlanetNameProps) =>  {
+const PlanetName : React.FC<PlanetNameProps> = ({ planetName, onChangePlanetName, validate }: PlanetNameProps) =>  {
   const errorMessages = validatePlanetName(planetName);
 
   return (
@@ -17,7 +17,7 @@ const PlanetName : React.FC<PlanetNameProps> = ({ planetName, onChangeSpeciesNam
         type="text"
         id="planetName"
         value={planetName}
-        onChange={(e) => onChangeSpeciesName(e)} 
+        onChange={(e) => onChangePlanetName(e)} 
          />
 
       {errorMessages.length > 0 && (
