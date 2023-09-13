@@ -4,7 +4,7 @@ import validateSpeciesName from '../validate/ValidateSpeciesName';
 interface SpeciesNameProps {
     speciesName: string;
     onChangeSpeciesName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    validate: (value: string) => string[]; // Add this line for the validate prop
+    validate: (value: string) => string[]; 
   } 
 
 const SpeciesName : React.FC<SpeciesNameProps> = ({ speciesName, onChangeSpeciesName, validate }: SpeciesNameProps) =>  {
