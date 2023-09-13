@@ -48,7 +48,7 @@ const W12MForm = () => {
         <div>
           <PlanetName
             planetName={planetName}
-            onChangeSpeciesName={(e) => setPlanetName(e.target.value)}
+            onChangePlanetName={(e) => setPlanetName(e.target.value)}
             validate={validatePlanetName}/>
         </div>
         <div>
